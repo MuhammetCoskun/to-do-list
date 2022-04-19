@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { TodoFormProps } from "./types";
+import { ToDoFormProps } from "./types";
 
-const ToDoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
+const ToDoForm: React.FC<ToDoFormProps> = ({ onAddTodo }) => {
   const todoRef = useRef<HTMLInputElement>(null);
   const [inputIsValid, setInputIsValid] = useState<boolean>(true);
 

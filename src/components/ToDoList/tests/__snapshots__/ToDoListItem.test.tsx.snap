@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoList Component renders correctly 1`] = `
+<DocumentFragment>
+  <li>
+    text
+  </li>
+</DocumentFragment>
+`;

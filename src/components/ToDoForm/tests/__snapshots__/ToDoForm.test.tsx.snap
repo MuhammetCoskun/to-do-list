@@ -11,6 +11,7 @@ exports[`ToDoForm component renders correctly 1`] = `
       />
     </div>
     <button
+      data-testid="button"
       type="submit"
     >
       Enter
