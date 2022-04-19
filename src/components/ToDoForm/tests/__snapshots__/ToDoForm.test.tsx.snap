@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoForm component renders correctly 1`] = `
+<DocumentFragment>
+  <form>
+    <div>
+      <input
+        data-testid="input"
+        placeholder="Enter a to do!"
+        type="text"
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Enter
+    </button>
+  </form>
+</DocumentFragment>
+`;

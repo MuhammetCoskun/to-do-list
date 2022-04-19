@@ -1,6 +1,6 @@
 import React from "react";
 
-const ToDoListItem = (): JSX.Element => {
+const ToDoListItem: React.FC = () => {
   return <p>ToDoListItem Component</p>;
 };
 
