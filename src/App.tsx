@@ -2,10 +2,13 @@ import "./App.css";
 import ToDoForm from "./components/ToDoForm";
 import ShowToDos from "./components/ShowToDos";
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
+  const addTodoHandler = (text: string) => {
+    console.log(text);
+  };
   return (
     <div className="App">
-      <ToDoForm />
+      <ToDoForm onAddTodo={addTodoHandler} />
       <ShowToDos />
     </div>
   );
