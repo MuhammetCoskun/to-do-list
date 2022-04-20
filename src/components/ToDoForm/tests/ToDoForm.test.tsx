@@ -2,10 +2,10 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ToDoForm from "../index";
-import { TodoFormProps } from "../types";
+import { ToDoFormProps } from "../types";
 
 const mockOnAddTodo = jest.fn();
-const customRender = (props: TodoFormProps) => {
+const customRender = (props: ToDoFormProps) => {
   render(<ToDoForm {...props} />);
 };
 describe("ToDoForm component", () => {
