@@ -7,4 +7,223 @@ body {
     "Droid Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  font-size: 1.5rem;
+  --color-background--: #125b50;
+  --color-light--: #fff;
+  --color-secondary--: #8d8daa;
+  --color-gray--: #e4e4e4;
+  background: var(--color-background--);
+  color: var(--color-light--);
+}
+
+::selection {
+  color: var(--color-background--);
+  background: var(--color-light--);
+}
+
+::placeholder {
+  color: var(--color-secondary--);
+  opacity: 0.7;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  font-size: calc(3vw + 1rem);
+  font-weight: 700;
+  margin: 0.5em 0;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mylists {
+  width: 20%;
+  grid-area: lists;
+}
+
+.todo-list {
+  width: 30%;
+  grid-area: active;
+}
+
+.todo-list-show {
+  --spacer: 3rem;
+  background: var(--color-light--);
+  color: var(--color-background--);
+}
+
+/*<------ list side ------->*/
+
+.list-header {
+  padding: var(--spacer);
+  background: var(--color-gray--);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin: 0 1em 0 0;
+}
+
+.mylists-list {
+  font-size: 1.3rem;
+  line-height: 1.5em;
+  list-style: circle;
+  padding-left: 1em;
+}
+
+.list-name {
+  cursor: pointer;
+}
+
+.list-name:hover {
+  opacity: 0.5;
+}
+
+.active-list {
+  font-weight: 600;
+}
+
+/*<------ form and form related ------->*/
+
+form {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.btn.create {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 0.33em;
+  transition: opacity 300ms ease-in;
+  border-radius: 40%;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+
+.btn.create:hover {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+.new {
+  order: 2;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  transition: border-bottom 200ms ease-in;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new:focus::placeholder {
+  opacity: 0.3;
+}
+
+/*<------ todo side  ------->*/
+
+.todo-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: var(--spacer);
+}
+
+.todo-task-item {
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+.todo-task-item label {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.todo-task-item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox {
+  --size: 0.75em;
+  display: inline-block;
+  cursor: pointer;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+
+.todo-task-item:hover .checkbox,
+[type="checkbox"]:focus + label .checkbox {
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+
+[type="checkbox"]:checked + label .checkbox {
+  background: var(--color-background--);
+  border-color: var(--color-background--);
+  box-shadow: inset 0 0 0 3px white;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: 0.5;
+}
+
+.todo-task-item label::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 1.5em;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.5;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
