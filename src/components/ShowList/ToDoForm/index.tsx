@@ -18,23 +18,34 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onAddTodo }) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
+    <div className={"task-form"}>
+      <form onSubmit={submitHandler}>
         <input
+          className="new todo"
           type="text"
-          placeholder="Enter a to do!"
+          placeholder="Enter a new to do"
+          aria-label="new to do name"
           ref={todoRef}
           data-testid="input"
         />
+        <button
+          aria-label="create new to do"
+          data-testid="button"
+          className="btn create"
+        >
+          +
+        </button>
+      </form>
+      <div className="delete-item-container">
+        <button className="btn delete">Clear completed tasks!</button>
+        <button className="btn delete">Delete list!</button>
       </div>
-      <button type="submit" data-testid="button">
-        Enter
-      </button>
       {!inputIsValid && (
         <p data-testid="paragraph">Please enter a valid to do..</p>
       )}
-    </form>
+    </div>
   );
 };
-//TODO add style and 'data-testid's
+
 export default ToDoForm;
+//TODO add style

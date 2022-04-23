@@ -1,30 +1,78 @@
-import "./App.css";
 import { useState } from "react";
-import ToDoForm from "./components/ToDoForm";
-import ToDoList from "./components/ToDoList";
-import { ToDoListItemType } from "./components/ToDoList/types";
+import MyLists from "./components/MyLists";
+import ShowList from "./components/ShowList";
+import { ListType } from "./components/MyLists/Lists/types";
+import { ToDoListItemType } from "./components/ShowList/ToDoList/types";
+import { nanoid } from "nanoid";
 
 const App: React.FC = () => {
-  const [todoList, setTodoList] = useState<ToDoListItemType[]>([]);
+  const [myLists, setMyLists] = useState<ListType[]>([]);
+  const [activeListIndex, setActiveListIndex] = useState<number>(-1);
+
+  const chooseListHandler = (id: string) => {
+    const index = myLists.findIndex((list) => list.id === id);
+    setActiveListIndex(index);
+  };
+
+  const addToListHandler = (title: string) => {
+    const newList: ListType = {
+      id: nanoid(10),
+      title,
+      todos: [],
+    };
+    setMyLists((prevLists) => [...prevLists, newList]);
+  };
 
   const addTodoHandler = (text: string) => {
     const todo: ToDoListItemType = {
-      id: Math.random().toString(), //use Nanoid here
+      id: nanoid(10),
       text: text,
       createdAt: new Date().toLocaleString(),
       isDone: false,
     };
-    setTodoList((prevList) => [...prevList, todo]);
+    setMyLists((prevLists) => {
+      prevLists[activeListIndex] = {
+        ...prevLists[activeListIndex],
+        todos: [...prevLists[activeListIndex].todos, todo],
+      };
+      return [...prevLists];
+    });
   };
 
   const removeTodoHandler = (id: string) => {
-    setTodoList((prevList) => prevList.filter((todo) => todo.id !== id));
+    setMyLists((prevLists) => {
+      const remainingTodos = prevLists[activeListIndex].todos.filter(
+        (todo) => todo.id !== id
+      );
+      prevLists[activeListIndex] = {
+        ...prevLists[activeListIndex],
+        todos: [...remainingTodos],
+      };
+      return [...prevLists];
+    });
   };
 
   return (
     <div className="App">
-      <ToDoForm onAddTodo={addTodoHandler} />
-      <ToDoList list={todoList} onRemove={removeTodoHandler} />
+      <h1 className="title">TO DO LIST</h1>
+      <div className="lists">
+        <div className="mylists">
+          <MyLists
+            onChooseList={chooseListHandler}
+            onAddList={addToListHandler}
+            lists={myLists}
+          />
+        </div>
+        <div className={"todo-list"}>
+          {myLists[activeListIndex] && (
+            <ShowList
+              listToShow={myLists[activeListIndex]}
+              onAddTodo={addTodoHandler}
+              onRemoveTodo={removeTodoHandler}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 };

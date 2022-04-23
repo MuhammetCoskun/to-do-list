@@ -4,8 +4,8 @@ import { ToDoListProps } from "./types";
 
 const ToDoList: React.FC<ToDoListProps> = ({ list, onRemove }) => {
   return (
-    <ul>
-      {list.map((item) => (
+    <div className={"todo-tasks-container"}>
+      {list.todos.map((item) => (
         <ToDoListItem
           key={item.id}
           id={item.id}
@@ -13,7 +13,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ list, onRemove }) => {
           onRemove={onRemove}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 
