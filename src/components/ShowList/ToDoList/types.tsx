@@ -12,10 +12,11 @@ export type ToDoListItemProps = {
   id: string;
   key?: string;
   text: string;
-  onRemove: (id: string) => void;
+  isDone: boolean;
+  onChangeIsDone: (id: string) => void;
 };
 
 export type ToDoListProps = {
   list: ListType;
-  onRemove: (id: string) => void;
+  onChangeIsDone: (id: string) => void;
 };

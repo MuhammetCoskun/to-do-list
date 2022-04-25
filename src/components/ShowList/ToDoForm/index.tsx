@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import { ToDoFormProps } from "./types";
 
-const ToDoForm: React.FC<ToDoFormProps> = ({ onAddTodo }) => {
+const ToDoForm: React.FC<ToDoFormProps> = ({
+  onAddTodo,
+  onRemoveTodo,
+  onRemoveList,
+}) => {
   const todoRef = useRef<HTMLInputElement>(null);
   const [inputIsValid, setInputIsValid] = useState<boolean>(true);
 
@@ -37,8 +41,12 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onAddTodo }) => {
         </button>
       </form>
       <div className="delete-item-container">
-        <button className="btn delete">Clear completed tasks!</button>
-        <button className="btn delete">Delete list!</button>
+        <button className="btn delete" onClick={onRemoveTodo}>
+          Clear completed tasks!
+        </button>
+        <button className="btn delete" onClick={onRemoveList}>
+          Delete list!
+        </button>
       </div>
       {!inputIsValid && (
         <p data-testid="paragraph">Please enter a valid to do..</p>
@@ -48,4 +56,3 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ onAddTodo }) => {
 };
 
 export default ToDoForm;
-//TODO add style

@@ -5,16 +5,28 @@ import ToDoForm from "../index";
 import { ToDoFormProps } from "../types";
 
 const mockOnAddTodo = jest.fn();
+const mockOnRemoveTodo = jest.fn();
+const mockOnRemoveList = jest.fn();
 const customRender = (props: ToDoFormProps) => {
   render(<ToDoForm {...props} />);
 };
 describe("ToDoForm component", () => {
   test("renders correctly", () => {
-    const { asFragment } = render(<ToDoForm onAddTodo={mockOnAddTodo} />);
+    const { asFragment } = render(
+      <ToDoForm
+        onAddTodo={mockOnAddTodo}
+        onRemoveTodo={mockOnRemoveTodo}
+        onRemoveList={mockOnRemoveList}
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
   test("renders error message on invalid input", () => {
-    customRender({ onAddTodo: mockOnAddTodo });
+    customRender({
+      onAddTodo: mockOnAddTodo,
+      onRemoveTodo: mockOnRemoveTodo,
+      onRemoveList: mockOnRemoveList,
+    });
     const buttonElement = screen.getByRole("button");
     userEvent.click(buttonElement);
     expect(
@@ -22,7 +34,11 @@ describe("ToDoForm component", () => {
     ).toBeInTheDocument();
   });
   test("when button clicked it should call onAddTodo callback", () => {
-    customRender({ onAddTodo: mockOnAddTodo });
+    customRender({
+      onAddTodo: mockOnAddTodo,
+      onRemoveTodo: mockOnRemoveTodo,
+      onRemoveList: mockOnRemoveList,
+    });
     const inputElement = screen.getByTestId("input");
     const buttonElement = screen.getByTestId("button");
     userEvent.type(inputElement, "Write Tests!");

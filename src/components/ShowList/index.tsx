@@ -6,6 +6,8 @@ const ShowList: React.FC<ShowListProps> = ({
   listToShow,
   onAddTodo,
   onRemoveTodo,
+  onRemoveList,
+  onChangeIsDone,
 }) => {
   return (
     <div className="todo-list-show">
@@ -18,8 +20,12 @@ const ShowList: React.FC<ShowListProps> = ({
         )}
       </div>
       <div className="todo-body">
-        <ToDoList list={listToShow} onRemove={onRemoveTodo} />
-        <ToDoForm onAddTodo={onAddTodo} />
+        <ToDoList list={listToShow} onChangeIsDone={onChangeIsDone} />
+        <ToDoForm
+          onAddTodo={onAddTodo}
+          onRemoveTodo={onRemoveTodo}
+          onRemoveList={onRemoveList.bind(null, listToShow.id)}
+        />
       </div>
     </div>
   );

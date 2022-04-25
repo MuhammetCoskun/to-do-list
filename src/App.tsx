@@ -23,6 +23,13 @@ const App: React.FC = () => {
     setMyLists((prevLists) => [...prevLists, newList]);
   };
 
+  const removeListHandler = () => {
+    setMyLists((prevLists) =>
+      prevLists.filter((list) => list.id !== myLists[activeListIndex].id)
+    );
+    console.log("removing list");
+  };
+
   const addTodoHandler = (text: string) => {
     const todo: ToDoListItemType = {
       id: nanoid(10),
@@ -39,15 +46,26 @@ const App: React.FC = () => {
     });
   };
 
-  const removeTodoHandler = (id: string) => {
+  const changeIsDoneHandler = (id: string) => {
     setMyLists((prevLists) => {
-      const remainingTodos = prevLists[activeListIndex].todos.filter(
-        (todo) => todo.id !== id
+      const todoList = prevLists[activeListIndex].todos;
+      const selectedTodoIndex = prevLists[activeListIndex].todos.findIndex(
+        (todo) => todo.id === id
       );
+      todoList[selectedTodoIndex].isDone = !todoList[selectedTodoIndex].isDone;
+      return [...prevLists];
+    });
+  };
+
+  const removeTodoHandler = () => {
+    let todosList = myLists[activeListIndex].todos;
+    todosList = todosList.filter((todo) => todo.isDone !== true);
+    setMyLists((prevLists) => {
       prevLists[activeListIndex] = {
         ...prevLists[activeListIndex],
-        todos: [...remainingTodos],
+        todos: [...todosList],
       };
+      console.log(prevLists);
       return [...prevLists];
     });
   };
@@ -69,6 +87,8 @@ const App: React.FC = () => {
               listToShow={myLists[activeListIndex]}
               onAddTodo={addTodoHandler}
               onRemoveTodo={removeTodoHandler}
+              onRemoveList={removeListHandler}
+              onChangeIsDone={changeIsDoneHandler}
             />
           )}
         </div>

@@ -1,15 +1,20 @@
 import React from "react";
 import { ToDoListItemProps } from "./types";
 
-const ToDoListItem: React.FC<ToDoListItemProps> = ({ id, text, onRemove }) => {
+const ToDoListItem: React.FC<ToDoListItemProps> = ({
+  id,
+  text,
+  isDone,
+  onChangeIsDone,
+}) => {
   const clickHandler = () => {
-    onRemove(id);
+    onChangeIsDone(id);
   };
 
   return (
     <div className={"todo-task-item"}>
-      <input type="checkbox" id={id} />
-      <label htmlFor={id}>
+      <input type="checkbox" id={id} defaultChecked={isDone} />
+      <label htmlFor={id} onClick={clickHandler}>
         <span className={"checkbox"}></span>
         {text}
       </label>

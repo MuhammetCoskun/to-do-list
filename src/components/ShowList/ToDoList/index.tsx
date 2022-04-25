@@ -2,7 +2,7 @@ import React from "react";
 import ToDoListItem from "./ToDoListItem";
 import { ToDoListProps } from "./types";
 
-const ToDoList: React.FC<ToDoListProps> = ({ list, onRemove }) => {
+const ToDoList: React.FC<ToDoListProps> = ({ list, onChangeIsDone }) => {
   return (
     <div className={"todo-tasks-container"}>
       {list.todos.map((item) => (
@@ -10,7 +10,8 @@ const ToDoList: React.FC<ToDoListProps> = ({ list, onRemove }) => {
           key={item.id}
           id={item.id}
           text={item.text}
-          onRemove={onRemove}
+          onChangeIsDone={onChangeIsDone}
+          isDone={item.isDone}
         />
       ))}
     </div>
