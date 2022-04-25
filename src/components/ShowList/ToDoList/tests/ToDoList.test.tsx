@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import ToDoList from "..";
 import { ToDoListProps } from "../types";
 
-const mockOnRemove = jest.fn();
+const mockOnChangeIsDone = jest.fn();
 const customRender = (props: ToDoListProps) => {
   render(<ToDoList {...props} />);
 };
@@ -13,7 +13,7 @@ describe("ToDoList Component", () => {
     const { asFragment } = render(
       <ToDoList
         list={{ id: "1", title: "title", todos: [] }}
-        onRemove={mockOnRemove}
+        onChangeIsDone={mockOnChangeIsDone}
       />
     );
     expect(asFragment()).toMatchSnapshot();
@@ -28,7 +28,7 @@ describe("ToDoList Component", () => {
           { id: "3", text: "text2", createdAt: "2022", isDone: false },
         ],
       },
-      onRemove: mockOnRemove,
+      onChangeIsDone: mockOnChangeIsDone,
     });
     const ulElement = screen.getByRole("list");
     expect(ulElement.childElementCount).toBe(2);
