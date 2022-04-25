@@ -24,7 +24,7 @@ const ShowList: React.FC<ShowListProps> = ({
         <ToDoForm
           onAddTodo={onAddTodo}
           onRemoveTodo={onRemoveTodo}
-          onRemoveList={onRemoveList.bind(null, listToShow.id)}
+          onRemoveList={onRemoveList}
         />
       </div>
     </div>
