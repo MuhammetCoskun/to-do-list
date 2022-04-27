@@ -1,6 +1,6 @@
 import React from "react";
-import NewListForm from "./NewListForm";
-import Lists from "./Lists";
+import NewListForm from "./NewListForm/NewListForm";
+import Lists from "./Lists/Lists";
 import { MyListsProps } from "./types";
 
 const MyLists: React.FC<MyListsProps> = ({

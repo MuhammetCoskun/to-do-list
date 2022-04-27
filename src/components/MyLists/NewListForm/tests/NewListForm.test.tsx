@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import NewListForm from "../index";
+import NewListForm from "../NewListForm";
 import { NewListFormProps } from "../types";
 
 const mockOnAddList = jest.fn();

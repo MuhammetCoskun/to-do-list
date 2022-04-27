@@ -1,5 +1,5 @@
-import ToDoForm from "./ToDoForm";
-import ToDoList from "./ToDoList";
+import ToDoForm from "./ToDoForm/ToDoForm";
+import ToDoList from "./ToDoList/ToDoList";
 import { ShowListProps } from "./types";
 
 const ShowList: React.FC<ShowListProps> = ({

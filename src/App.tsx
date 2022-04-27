@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MyLists from "./components/MyLists";
-import ShowList from "./components/ShowList";
+import MyLists from "./components/MyLists/MyLists";
+import ShowList from "./components/ShowList/ShowList";
 import { ListType } from "./components/MyLists/Lists/types";
 import { ToDoListItemType } from "./components/ShowList/ToDoList/types";
 import { nanoid } from "nanoid";

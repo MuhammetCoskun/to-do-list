@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ToDoForm from "../index";
+import ToDoForm from "../ToDoForm";
 import { ToDoFormProps } from "../types";
 
 const mockOnAddTodo = jest.fn();

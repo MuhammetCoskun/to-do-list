@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ToDoList from "..";
+import ToDoList from "../ToDoList";
 import { ToDoListProps, ToDoListItemProps } from "../types";
 
 jest.mock(
