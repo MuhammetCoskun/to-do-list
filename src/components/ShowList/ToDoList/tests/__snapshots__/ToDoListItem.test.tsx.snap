@@ -2,8 +2,21 @@
 
 exports[`ToDoList Component renders correctly 1`] = `
 <DocumentFragment>
-  <li>
-    text
-  </li>
+  <div
+    class="todo-task-item"
+  >
+    <input
+      id="id"
+      type="checkbox"
+    />
+    <label
+      for="id"
+    >
+      <span
+        class="checkbox"
+      />
+      text
+    </label>
+  </div>
 </DocumentFragment>
 `;

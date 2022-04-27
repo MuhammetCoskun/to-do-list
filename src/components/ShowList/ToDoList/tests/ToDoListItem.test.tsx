@@ -8,7 +8,6 @@ const customRender = (props: ToDoListItemProps) => {
   render(<ToDoListItem {...props} />);
 };
 
-const mockOnRemove = jest.fn();
 const mockOnChangeIsDone = jest.fn();
 
 describe("ToDoList Component", () => {
@@ -32,6 +31,6 @@ describe("ToDoList Component", () => {
     });
     const listItemElement = screen.getByRole("listitem");
     userEvent.click(listItemElement);
-    expect(mockOnRemove).toHaveBeenCalledWith("id");
+    expect(mockOnChangeIsDone).toHaveBeenCalledWith("id");
   });
 });

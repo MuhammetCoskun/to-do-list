@@ -27,7 +27,6 @@ const App: React.FC = () => {
     setMyLists((prevLists) =>
       prevLists.filter((list) => list.id !== myLists[activeListIndex].id)
     );
-    console.log("removing list");
   };
 
   const addTodoHandler = (text: string) => {

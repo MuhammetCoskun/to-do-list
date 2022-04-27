@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoForm component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="task-form"
+  >
+    <form>
+      <input
+        aria-label="new to do name"
+        class="new todo"
+        data-testid="input"
+        placeholder="Enter a new to do"
+        type="text"
+      />
+      <button
+        aria-label="create new to do"
+        class="btn create"
+        data-testid="button"
+      >
+        +
+      </button>
+    </form>
+    <div
+      class="delete-item-container"
+    >
+      <button
+        class="btn delete"
+      >
+        Clear completed tasks!
+      </button>
+      <button
+        class="btn delete"
+      >
+        Delete list!
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

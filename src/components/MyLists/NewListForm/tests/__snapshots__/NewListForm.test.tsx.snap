@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewListForm component renders correctly 1`] = `
+<DocumentFragment>
+  <form>
+    <input
+      aria-label="new list name"
+      class="new list"
+      data-testid="input"
+      placeholder="Enter a new List"
+      type="text"
+    />
+    <button
+      aria-label="create new list"
+      class="btn create"
+      data-testid="button"
+    >
+      +
+    </button>
+  </form>
+</DocumentFragment>
+`;
