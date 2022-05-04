@@ -10,6 +10,7 @@ exports[`ToDoList Component renders correctly 1`] = `
       type="checkbox"
     />
     <label
+      data-testid="label"
       for="id"
     >
       <span

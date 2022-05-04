@@ -5,14 +5,10 @@ exports[`ToDoList Component renders correctly 1`] = `
   <div
     class="todo-tasks-container"
   >
-    <div
-      role="list"
-    >
+    <div>
       text
     </div>
-    <div
-      role="list"
-    >
+    <div>
       text2
     </div>
   </div>

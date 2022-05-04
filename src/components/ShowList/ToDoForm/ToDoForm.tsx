@@ -34,17 +34,25 @@ const ToDoForm: React.FC<ToDoFormProps> = ({
         />
         <button
           aria-label="create new to do"
-          data-testid="button"
+          data-testid="btn-create"
           className="btn create"
         >
           +
         </button>
       </form>
       <div className="delete-item-container">
-        <button className="btn delete" onClick={onRemoveTodo}>
+        <button
+          className="btn delete"
+          onClick={onRemoveTodo}
+          data-testid="btn-delete-todo"
+        >
           Clear completed tasks!
         </button>
-        <button className="btn delete" onClick={onRemoveList}>
+        <button
+          className="btn delete"
+          onClick={onRemoveList}
+          data-testid="btn-delete-list"
+        >
           Delete list!
         </button>
       </div>

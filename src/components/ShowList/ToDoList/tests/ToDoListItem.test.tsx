@@ -22,15 +22,15 @@ describe("ToDoList Component", () => {
     );
     expect(asFragment()).toMatchSnapshot();
   });
-  test("when list item clicked it should call onRemove callback with id prop", () => {
+  test("when todo item clicked it should call onChangeIsDone callback with id prop", () => {
     customRender({
       id: "id",
       text: "text",
       onChangeIsDone: mockOnChangeIsDone,
       isDone: false,
     });
-    const listItemElement = screen.getByRole("listitem");
-    userEvent.click(listItemElement);
+    const todoItemElement = screen.getByTestId("label");
+    userEvent.click(todoItemElement);
     expect(mockOnChangeIsDone).toHaveBeenCalledWith("id");
   });
 });

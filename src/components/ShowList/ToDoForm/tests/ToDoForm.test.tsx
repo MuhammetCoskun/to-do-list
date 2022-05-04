@@ -7,9 +7,17 @@ import { ToDoFormProps } from "../types";
 const mockOnAddTodo = jest.fn();
 const mockOnRemoveTodo = jest.fn();
 const mockOnRemoveList = jest.fn();
+
+const properties = {
+  onAddTodo: mockOnAddTodo,
+  onRemoveTodo: mockOnRemoveTodo,
+  onRemoveList: mockOnRemoveList,
+};
+
 const customRender = (props: ToDoFormProps) => {
   render(<ToDoForm {...props} />);
 };
+
 describe("ToDoForm component", () => {
   test("renders correctly", () => {
     const { asFragment } = render(
@@ -23,26 +31,38 @@ describe("ToDoForm component", () => {
   });
   test("renders error message on invalid input", () => {
     customRender({
-      onAddTodo: mockOnAddTodo,
-      onRemoveTodo: mockOnRemoveTodo,
-      onRemoveList: mockOnRemoveList,
+      ...properties,
     });
-    const buttonElement = screen.getByRole("button");
+    const buttonElement = screen.getByTestId("btn-create");
     userEvent.click(buttonElement);
     expect(
       screen.getByText("Please enter a valid to do..")
     ).toBeInTheDocument();
   });
-  test("when button clicked it should call onAddTodo callback", () => {
+  test("should call onAddTodo callback when create button clicked it", () => {
     customRender({
-      onAddTodo: mockOnAddTodo,
-      onRemoveTodo: mockOnRemoveTodo,
-      onRemoveList: mockOnRemoveList,
+      ...properties,
     });
     const inputElement = screen.getByTestId("input");
-    const buttonElement = screen.getByTestId("button");
+    const buttonElement = screen.getByTestId("btn-create");
     userEvent.type(inputElement, "Write Tests!");
     userEvent.click(buttonElement);
     expect(mockOnAddTodo).toHaveBeenCalledWith("Write Tests!");
+  });
+  test("should call onRemoveTodo callback when clear completed task button clicked", () => {
+    customRender({
+      ...properties,
+    });
+    const clearToDoButton = screen.getByTestId("btn-delete-todo");
+    userEvent.click(clearToDoButton);
+    expect(mockOnRemoveTodo).toBeCalled();
+  });
+  test("should call onRemoveList callback when delete list button clicked", () => {
+    customRender({
+      ...properties,
+    });
+    const clearListButton = screen.getByTestId("btn-delete-list");
+    userEvent.click(clearListButton);
+    expect(mockOnRemoveList).toBeCalled();
   });
 });

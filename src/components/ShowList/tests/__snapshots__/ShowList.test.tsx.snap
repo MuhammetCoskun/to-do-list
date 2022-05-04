@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowList component should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="todo-list-show"
+  >
+    <div
+      class="list-header"
+    >
+      <h2
+        class="list-title"
+      >
+        title
+      </h2>
+      <p
+        class="todo-count"
+      >
+        2 tasks remaining!
+      </p>
+    </div>
+    <div
+      class="todo-body"
+    >
+      <div
+        id="1"
+      >
+        <p>
+          text1
+        </p>
+        <p>
+          text2
+        </p>
+      </div>
+      <div>
+        Form Input and Buttons
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
