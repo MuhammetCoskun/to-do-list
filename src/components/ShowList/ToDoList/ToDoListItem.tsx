@@ -14,7 +14,7 @@ const ToDoListItem: React.FC<ToDoListItemProps> = ({
   return (
     <div className={"todo-task-item"}>
       <input type="checkbox" id={id} defaultChecked={isDone} />
-      <label htmlFor={id} onClick={clickHandler}>
+      <label htmlFor={id} onClick={clickHandler} data-testid="label">
         <span className={"checkbox"}></span>
         {text}
       </label>

@@ -16,7 +16,7 @@ exports[`ToDoForm component renders correctly 1`] = `
       <button
         aria-label="create new to do"
         class="btn create"
-        data-testid="button"
+        data-testid="btn-create"
       >
         +
       </button>
@@ -26,11 +26,13 @@ exports[`ToDoForm component renders correctly 1`] = `
     >
       <button
         class="btn delete"
+        data-testid="btn-delete-todo"
       >
         Clear completed tasks!
       </button>
       <button
         class="btn delete"
+        data-testid="btn-delete-list"
       >
         Delete list!
       </button>
