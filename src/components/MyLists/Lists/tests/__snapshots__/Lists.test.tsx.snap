@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lists component should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="mylists-list"
+  >
+    <li
+      class="list-name active-list"
+      data-testid="1"
+    >
+      Test
+    </li>
+  </ul>
+</DocumentFragment>
+`;
