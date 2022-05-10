@@ -7,6 +7,7 @@ const Lists: React.FC<ListsProps> = ({ lists, onChooseList }) => {
       {lists.map((list) => (
         <li
           key={list.id}
+          data-testid={list.id}
           onClick={() => onChooseList(list.id)}
           className={"list-name active-list"}
         >
